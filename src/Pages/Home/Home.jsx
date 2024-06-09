@@ -7,15 +7,15 @@ import "./home.css"
 
 function Home() {
     return (
-        <main>
+        <main className='position-relative'>
             <Aside>
-                <Navlist />
+                <Navlist /> 
             </Aside>
             <Header />
+            <Navlist addStyle="position-absolute d-lg-none" />
             <Main addStyle="d-flex align-items-center justify-content-center">
             </Main>
         </main>
     )
 }
-
 export default Home
