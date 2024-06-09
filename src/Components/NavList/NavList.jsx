@@ -32,7 +32,7 @@ function NavList(props) {
                     <li className='d-flex w-100 justify-content-center justify-content-lg-startcenter navStyle'>
                         <Link
                             to="/inscription"
-                            className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center w-100 ${location.pathname === '/administration' ? 'active' : 'text-white'}`}
+                            className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center w-100 m-1 ${location.pathname === '/administration' ? 'active' : 'text-white'}`}
                         >
                             Administration
                         </Link>
@@ -40,7 +40,7 @@ function NavList(props) {
                     <li className='d-flex w-100 justify-content-center justify-content-lg-startcenter navStyle'>
                         <Link
                             to="/profil"
-                            className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center w-100 ${location.pathname === '/profil' ? 'active' : 'text-white'}`}
+                            className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center w-100  m-1 ${location.pathname === '/profil' ? 'active' : 'text-white'}`}
                         >
                             Profil
                         </Link>
@@ -48,7 +48,7 @@ function NavList(props) {
                     <li className='d-flex w-100 justify-content-center justify-content-lg-startcenter navStyle'>
                         <Link
                             to="/quiz-disponibles"
-                            className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center w-100 ${location.pathname === '/quiz-disponibles' ? 'active' : 'text-white'}`}
+                            className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center w-100 m-1 ${location.pathname === '/quiz-disponibles' ? 'active' : 'text-white'}`}
                         >
                             Quiz disponibles
                         </Link>
@@ -56,7 +56,7 @@ function NavList(props) {
                     <li className='d-flex w-100 justify-content-center justify-content-lg-startcenter navStyle'>
                         <Link
                             to="/vos-quiz"
-                            className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center w-100 ${location.pathname === '/vos-quiz' ? 'active' : 'text-white'}`}
+                            className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center w-100 m-1 ${location.pathname === '/vos-quiz' ? 'active' : 'text-white'}`}
                         >
                             Vos Quiz
                         </Link>
@@ -64,7 +64,7 @@ function NavList(props) {
                     <li className='d-flex w-100 justify-content-center justify-content-lg-startcenter navStyle'>
                         <Link
                             to="/mentions-legales"
-                            className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center w-100 ${location.pathname === '/mentions-legales' ? 'active' : 'text-white'}`}
+                            className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center w-100 m-1 ${location.pathname === '/mentions-legales' ? 'active' : 'text-white'}`}
                         >
                             Mentions légales
                         </Link>
@@ -72,7 +72,7 @@ function NavList(props) {
                     <li className='d-flex w-100 justify-content-center justify-content-lg-startcenter navStyle'>
                         <Link
                             to="/politique-confidentialite"
-                            className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center w-100 ${location.pathname === '/politique-confidentialite' ? 'active' : 'text-white'}`}
+                            className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center w-100 m-1 ${location.pathname === '/politique-confidentialite' ? 'active' : 'text-white'}`}
                         >
                             Politique de confidentialité
                         </Link>

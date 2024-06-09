@@ -1,0 +1,6 @@
+.underlineCustomList {
+  border-bottom: 2px solid #2f3c71;
+}
+.underlineCustomList article p{
+  margin: 20px;
+}

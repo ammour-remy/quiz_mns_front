@@ -4,6 +4,7 @@ import CreateAccount from "./Pages/CreateAccount/CreateAccount";
 import LostPassword from "./Pages/LostPassword/LostPassword";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
 import Home from "./Pages/Home/Home";
+import QuizAvailable from "./Pages/QuizAvailable/QuizAvailable";
 
 export default function Routing() {
     return (
@@ -13,6 +14,7 @@ export default function Routing() {
             <Route path="/mot-de-passe-oublie" element={<LostPassword />}/>
             <Route path="/reinitialiser-le-mot-de-passe" element={<ResetPassword />}/>
             <Route path="/home" element={<Home />}/>
+            <Route path="/quiz-disponibles" element={<QuizAvailable />}/>
         </Routes>
     )
 }
