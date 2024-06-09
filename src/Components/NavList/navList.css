@@ -1,0 +1,18 @@
+.navStyle {
+  height: 50px;
+  border-bottom: 3px solid #ff6026;
+}
+nav ul li .active {
+    background-color: #fff;
+    color: #ff6026 !important;
+    border-right: 3px solid #2f3c71;
+    height: 91% !important;
+}
+@media (min-width: 992px) {
+  .navStyle {
+    height: 10.5%;
+  }
+  nav {
+    height: 100%;
+  }
+}

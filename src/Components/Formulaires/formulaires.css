@@ -1,0 +1,19 @@
+#formulaire {
+    border: 3px solid #ff6026;
+    width: 90%;
+}
+#formulaire article{
+    border-bottom: 3px solid #ff6026;
+}
+#formulaire button{
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+.w-90 {
+    width: 90%;
+}
+@media (min-width: 600px) {
+    #formulaire {
+        width: 500px;
+    }
+}
