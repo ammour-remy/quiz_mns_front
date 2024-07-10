@@ -1,0 +1,24 @@
+.boxHome {
+    border: 3px solid #ff6026;
+    height: 45%;
+    overflow: hidden;
+}
+#listHome:nth-last-of-type(0) .boxHome,
+#listHome:nth-last-of-type(1) .boxHome {
+   margin-bottom: 60px;
+}
+.listHome {
+    border-bottom: 3px solid #ff6026;
+}
+.boxHome li:hover {
+    color: white;
+    background-color: #2f3c71;
+}
+#listHome .buttonMore {
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+#listHome .buttonMore:hover{
+    color: white !important;
+    background-color: #2f3c71;
+}

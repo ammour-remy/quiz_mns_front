@@ -43,7 +43,6 @@ function Formulaires(props) {
                         </Link>
                     </>
                 )}
-
                 <section className='pb-4'></section>
                 <button className='bgPrimary fw-semibold position-absolute bottom-0 end-0 border-0 p-3 px-4 rounded-3' type="submit">Envoyer</button>
             </form>

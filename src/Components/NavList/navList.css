@@ -7,7 +7,7 @@ nav ul li .active {
     color: #ff6026 !important;
     font-weight: bold;
     border-right: 1px solid #2f3c71;
-    height: 91% !important;
+    height: 82% !important;
 }
 #custom-button-nav {
     height: 60px;
@@ -25,4 +25,7 @@ nav ul li .active {
   nav {
     height: 100%;
   }
+  nav ul li .active {
+    height: 91% !important;
+}
 }

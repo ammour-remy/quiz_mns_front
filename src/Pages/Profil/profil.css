@@ -1,0 +1,25 @@
+.boxProfil {
+    border: 3px solid #ff6026
+
+}
+.boxProfil h3{
+    border-bottom: 3px solid #2f3c71;
+}
+.boxProfil .buttonEdite{
+    border: 3px solid #2f3c71;
+    width: 75%;
+    max-width: 292px;
+    height: min-content;
+
+}
+
+@media (min-width: 1200px) {
+    .customResult {
+        position: absolute;
+        right: 35px;
+        top: 18px;
+    }
+    .borderStat {
+        border-right: 3px solid #2f3c71;
+    }
+}
