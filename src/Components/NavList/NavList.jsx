@@ -29,14 +29,14 @@ function NavList(props) {
                             Accueil
                         </Link>
                     </li>
-                    <li className='d-flex w-100 navStyle'>
+                    {/* <li className='d-flex w-100 navStyle'>
                         <Link
                             to="/administration"
                             className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center justify-content-center justify-content-lg-start w-100 m-1 ${location.pathname === '/administration' ? 'active' : 'text-white'}`}
                         >
                             Administration
                         </Link>
-                    </li>
+                    </li> */}
                     <li className='d-flex w-100 navStyle'>
                         <Link
                             to="/profil"
@@ -61,7 +61,7 @@ function NavList(props) {
                             Vos Quiz
                         </Link>
                     </li>
-                    <li className='d-flex w-100 navStyle'>
+                    {/* <li className='d-flex w-100 navStyle'>
                         <Link
                             to="/mentions-legales"
                             className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center justify-content-center justify-content-lg-start w-100 m-1 ${location.pathname === '/mentions-legales' ? 'active' : 'text-white'}`}
@@ -76,7 +76,7 @@ function NavList(props) {
                         >
                             Politique de confidentialité
                         </Link>
-                    </li>
+                    </li> */}
                     <li className='d-flex w-100 navStyle'>
                         <p className="text-decoration-none ps-lg-4 h-100 d-flex align-items-center justify-content-center justify-content-lg-start w-100 m-1 text-white">
                         Déconnexion

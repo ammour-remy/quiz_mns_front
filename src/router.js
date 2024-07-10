@@ -7,9 +7,9 @@ import Home from "./Pages/Home/Home";
 import QuizAvailable from "./Pages/QuizAvailable/QuizAvailable";
 import MyQuiz from "./Pages/MyQuiz/MyQuiz";
 import Profil from "./Pages/Profil/Profil";
-import Administration from "./Pages/Administration/Administration";
-import Mentions from "./Pages/Mentions/Mentions";
-import Politique from "./Pages/Politique.jsx/Politique";
+// import Administration from "./Pages/Administration/Administration";
+// import Mentions from "./Pages/Mentions/Mentions";
+// import Politique from "./Pages/Politique.jsx/Politique";
 
 export default function Routing() {
     return (
@@ -22,9 +22,9 @@ export default function Routing() {
             <Route path="/quiz-disponibles" element={<QuizAvailable />}/>
             <Route path="/mes-quiz" element={<MyQuiz />}/>
             <Route path="/profil" element={<Profil />}/>
-            <Route path="/administration" element={<Administration />}/>
+            {/* <Route path="/administration" element={<Administration />}/>
             <Route path="/mentions-legales" element={<Mentions />}/>
-            <Route path="/politique-de-confidentialite" element={<Politique />}/>
+            <Route path="/politique-de-confidentialite" element={<Politique />}/> */}
         </Routes>
     )
 }

@@ -1,24 +1,64 @@
-import React from 'react'
-import './formulaires.css'
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import './formulaires.css';
+import { Link, useNavigate } from 'react-router-dom';
+import axiosInstance from '../../Services/AxiosInstance';
 
 function Formulaires(props) {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (props.title === "Connectez-vous") {
+            try {
+                const response = await axiosInstance.post('/login_check', {
+                    mail: email,
+                    password: password,
+                });
+                console.log(response.data); // Ajoutez ceci pour vérifier la réponse
+                const { token } = response.data;
+                localStorage.setItem('token', token); // Stocker le token dans le stockage local
+                setError('');
+                navigate('/home'); // Rediriger vers le tableau de bord après connexion
+            } catch (error) {
+                console.log(error.response.data); // Ajoutez ceci pour vérifier l'erreur
+                setError('Invalid email or password');
+            }
+        }
+    };
+
     return (
         <section id='formulaire' className='rounded-4'>
             <article className='p-4'>
                 <p className='fs-3 fw-semibold text-center m-0'>{props.title}</p>
             </article>
-            <form action='post' className='p-5 d-flex flex-column position-relative'>
-                {(props.title === "Connectez-vous" || props.title === "Inscrivez-vous" || props.title === "Mot de passe oublié" ) && (
+            <form onSubmit={handleSubmit} className='p-5 d-flex flex-column position-relative'>
+                {(props.title === "Connectez-vous" || props.title === "Inscrivez-vous" || props.title === "Mot de passe oublié") && (
                     <>
                         <label htmlFor="mail">E-mail</label>
-                        <input className='mb-4' type="text" name="mail" />
+                        <input
+                            className='mb-4'
+                            type="text"
+                            name="mail"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
                     </>
                 )}
                 {(props.title === "Connectez-vous" || props.title === "Inscrivez-vous") && (
                     <>
                         <label htmlFor="password">Mot de passe</label>
-                        <input className='mb-4' type="text" name="password" />
+                        <input
+                            className='mb-4'
+                            type="password"
+                            name="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
                     </>
                 )}
                 {props.title === "Réinitialiser le mot de passe" && (
@@ -43,11 +83,12 @@ function Formulaires(props) {
                         </Link>
                     </>
                 )}
+                {error && <p style={{ color: 'red' }}>{error}</p>}
                 <section className='pb-4'></section>
                 <button className='bgPrimary fw-semibold position-absolute bottom-0 end-0 border-0 p-3 px-4 rounded-3' type="submit">Envoyer</button>
             </form>
         </section>
-    )
+    );
 }
 
-export default Formulaires
+export default Formulaires;
