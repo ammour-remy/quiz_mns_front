@@ -63,16 +63,16 @@ function NavList(props) {
                     </li>
                     <li className='d-flex w-100 justify-content-center justify-content-lg-startcenter navStyle'>
                         <Link
-                            to="/mentions-legales"
-                            className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center w-100 m-1 ${location.pathname === '/mentions-legales' ? 'active' : 'text-white'}`}
+                            to="/legal-notice"
+                            className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center w-100 m-1 ${location.pathname === '/legal-notice' ? 'active' : 'text-white'}`}
                         >
                             Mentions légales
                         </Link>
                     </li>
                     <li className='d-flex w-100 justify-content-center justify-content-lg-startcenter navStyle'>
                         <Link
-                            to="/politique-confidentialite"
-                            className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center w-100 m-1 ${location.pathname === '/politique-confidentialite' ? 'active' : 'text-white'}`}
+                            to="/privacy-policy"
+                            className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center w-100 m-1 ${location.pathname === '/privacy-policy' ? 'active' : 'text-white'}`}
                         >
                             Politique de confidentialité
                         </Link>

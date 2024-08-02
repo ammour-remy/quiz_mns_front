@@ -5,6 +5,9 @@ import LostPassword from "./Pages/LostPassword/LostPassword";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
 import Home from "./Pages/Home/Home";
 import QuizAvailable from "./Pages/QuizAvailable/QuizAvailable";
+import Admin from "./Pages/Admin/Admin";
+import LegalNotice from "./Pages/LegalNotice/LegalNotice";
+import PrivacyPolicy from "./Pages/PrivacyPolicy/PrivacyPolicy";
 
 export default function Routing() {
     return (
@@ -15,6 +18,9 @@ export default function Routing() {
             <Route path="/reinitialiser-le-mot-de-passe" element={<ResetPassword />}/>
             <Route path="/home" element={<Home />}/>
             <Route path="/quiz-disponibles" element={<QuizAvailable />}/>
+            <Route path="/admin" element={<Admin />}/>
+            <Route path="/mentions-legales" element={<LegalNotice />}/>
+            <Route path="/politique-confidentialite" element={<PrivacyPolicy />}/>
         </Routes>
     )
 }
