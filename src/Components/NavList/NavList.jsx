@@ -63,6 +63,8 @@ function NavList(props) {
                     </li>
                     {/* <li className='d-flex w-100 navStyle'>
                         <Link
+                            to="/legal-notice"
+                            className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center w-100 m-1 ${location.pathname === '/legal-notice' ? 'active' : 'text-white'}`}
                             to="/mentions-legales"
                             className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center justify-content-center justify-content-lg-start w-100 m-1 ${location.pathname === '/mentions-legales' ? 'active' : 'text-white'}`}
                         >
@@ -73,6 +75,8 @@ function NavList(props) {
                         <Link
                             to="/politique-de-confidentialite"
                             className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center justify-content-center justify-content-lg-start w-100 m-1 ${location.pathname === '/politique-de-confidentialite' ? 'active' : 'text-white'}`}
+                            to="/privacy-policy"
+                            className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center w-100 m-1 ${location.pathname === '/privacy-policy' ? 'active' : 'text-white'}`}
                         >
                             Politique de confidentialité
                         </Link>
