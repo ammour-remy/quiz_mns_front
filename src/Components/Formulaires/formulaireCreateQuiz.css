@@ -1,0 +1,56 @@
+.formulaireCreateQuiz {
+  border: 3px solid #ff6026;
+  width: 90%;
+}
+.formulaireCreateQuiz article {
+  border-bottom: 3px solid #2f3c71;
+}
+.buttonCreateQuiz {
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+}
+.formulaireCreateQuiz input {
+  border: 2px #ff6026 solid;
+  height: 35px;
+}
+.numberInput {
+  width: 70px;
+}
+.checkboxInput {
+  border-color: #ff6026 !important;
+}
+
+.btn-custom {
+  background-color: #ff6026 !important;
+  color: white !important;
+  border: 2px solid #ff6026 !important;
+}
+
+.btn-outline-custom {
+  background-color: white !important;
+  color: #2f3c71 !important;
+  border: 2px solid #ff6026 !important;
+}
+.custom-checkbox {
+    width: 20px ;
+    height: 20px !important;
+    border: 2px solid #ff6026;
+    border-radius: 3px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+  }
+  
+  .custom-checkbox:checked {
+    background-color: #ff6026;
+    border: 2px solid #ff6026;
+  }
+  
+  .custom-checkbox:focus {
+    box-shadow: 0 0 2px 2px rgba(47, 60, 113, 0.5);
+  }

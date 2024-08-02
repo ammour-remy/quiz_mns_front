@@ -17,13 +17,11 @@ function Formulaires(props) {
                     mail: email,
                     password: password,
                 });
-                console.log(response.data); // Ajoutez ceci pour vérifier la réponse
                 const { token } = response.data;
-                localStorage.setItem('token', token); // Stocker le token dans le stockage local
+                localStorage.setItem('token', token);
                 setError('');
-                navigate('/home'); // Rediriger vers le tableau de bord après connexion
+                navigate('/home');
             } catch (error) {
-                console.log(error.response.data); // Ajoutez ceci pour vérifier l'erreur
                 setError('Invalid email or password');
             }
         }

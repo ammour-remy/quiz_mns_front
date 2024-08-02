@@ -78,9 +78,12 @@ function NavList(props) {
                         </Link>
                     </li> */}
                     <li className='d-flex w-100 navStyle'>
-                        <p className="text-decoration-none ps-lg-4 h-100 d-flex align-items-center justify-content-center justify-content-lg-start w-100 m-1 text-white">
-                        Déconnexion
-                        </p>
+                        <Link
+                            to="/deconnexion"
+                            className={`text-decoration-none ps-lg-4 h-100 d-flex align-items-center justify-content-center justify-content-lg-start w-100 m-1 ${location.pathname === '/deconnexion' ? 'active' : 'text-white'}`}
+                        >
+                            Déconnexion
+                        </Link>
                     </li>
                 </ul>
                 <p className='d-none d-lg-block text-center text-white'>Copyright © 2024 PAQUAM</p>
