@@ -25,6 +25,7 @@
 .btn-custom {
   background-color: #ff6026 !important;
   color: white !important;
+  opacity: 1 !important;
   border: 2px solid #ff6026 !important;
 }
 

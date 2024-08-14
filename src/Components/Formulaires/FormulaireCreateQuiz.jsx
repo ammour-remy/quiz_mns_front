@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './formulaireCreateQuiz.css';
 import axiosInstance from '../../Services/AxiosInstance';
 
-function FormulaireCreateQuiz() {
+function FormulaireCreateQuiz({ onTitleChange, onQuizSubmit, onQuizUpdate, isQuizSubmitted }) {
     const [title, setTitle] = useState('');
-    const [propositions, setPropositions] = useState(3);
     const [numQuestions, setNumQuestions] = useState(1);
     const [minScore, setMinScore] = useState(1);
     const [teamOption, setTeamOption] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
+
+    const [initialValues, setInitialValues] = useState({});
+
+    useEffect(() => {
+        if (isSubmitted && !isEditing) {
+            onTitleChange("Créer votre quiz");
+        }
+    }, [isSubmitted, isEditing, onTitleChange]);
 
     const handleTitleChange = (event) => {
         setTitle(event.target.value);
@@ -67,7 +74,18 @@ function FormulaireCreateQuiz() {
             });
 
             console.log('Quiz created successfully:', response.data);
+            
+            // Stocker les valeurs initiales du quiz après la création, incluant l'ID
+            setInitialValues({
+                id: response.data.id,
+                title: title,
+                minScore: minScore,
+                teamOption: teamOption,
+                numQuestions: numQuestions
+            });
+
             setIsSubmitted(true);
+            onQuizSubmit({ numQuestions: numQuestions, quizId: response.data.id }); // Inclure l'ID du quiz
         } catch (error) {
             if (error.response) {
                 console.error('Error response:', error.response.data);
@@ -80,16 +98,59 @@ function FormulaireCreateQuiz() {
 
     const handleEdit = () => {
         setIsEditing(true);
+        onTitleChange("Modifier votre quiz");
     };
 
-    const handleSave = () => {
-        setIsEditing(false);
-        // Logic for saving the changes if needed
+    const handleSave = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                console.error('Token is not available');
+                return;
+            }
+    
+            const updatedQuizData = {
+                title: title,
+                min_score: minScore,
+                is_team: teamOption,
+                accessibility: false,
+                number_question: numQuestions
+            };
+    
+            const response = await axiosInstance.put(`/api/quiz/update_quiz/${initialValues.id}`, updatedQuizData, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+    
+            console.log('Quiz updated successfully:', response.data);
+    
+            // Assurez-vous que l'objet complet est passé à onQuizUpdate
+            onQuizUpdate({
+                numQuestions: response.data.numberQuestion,
+                title: response.data.title,
+                minScore: response.data.minScore,
+                isTeam: response.data.isTeam,
+                id: response.data.id
+            });
+    
+            setIsEditing(false);
+        } catch (error) {
+            console.error('Failed to update the quiz:', error);
+        }
     };
+    
 
     const handleReturn = () => {
-        setIsSubmitted(true);
+        // Restaurer les valeurs initiales du quiz
+        setTitle(initialValues.title);
+        setMinScore(initialValues.minScore);
+        setTeamOption(initialValues.teamOption);
+        setNumQuestions(initialValues.numQuestions);
+
         setIsEditing(false);
+        onTitleChange("Créer votre quiz");
+        console.log(initialValues);
     };
 
     return (
@@ -148,28 +209,6 @@ function FormulaireCreateQuiz() {
                                 readOnly={isSubmitted && !isEditing}
                             />
                         </article>
-                        {/* <article className='border-0 d-flex flex-column flex-lg-row align-items-lg-center w-100 my-3'>
-                            <label className='me-2 mb-2 mb-lg-0 text-nowrap'>Nombres de propositions par question :</label>
-                            <div className='d-flex ps-lg-5'>
-                                <button
-                                    type="button"
-                                    className={`btn px-5 ${propositions === 3 ? 'btn-custom' : 'btn-outline-custom'}`}
-                                    onClick={() => setPropositions(3)}
-                                    disabled={isSubmitted && !isEditing}
-                                >
-                                    3
-                                </button>
-                                <span className='mx-2 pt-2 px-3'>ou</span>
-                                <button
-                                    type="button"
-                                    className={`btn px-5 ${propositions === 4 ? 'btn-custom' : 'btn-outline-custom'}`}
-                                    onClick={() => setPropositions(4)}
-                                    disabled={isSubmitted && !isEditing}
-                                >
-                                    4
-                                </button>
-                            </div>
-                        </article> */}
                     </section>
                     {isSubmitted ? (
                         isEditing ? (
@@ -191,7 +230,7 @@ function FormulaireCreateQuiz() {
                             </div>
                         ) : (
                             <button
-                                className="btn-primary bg-primary btn fw-semibold position-absolute buttonCreateQuiz bottom-0 end-0 border-0 p-3 px-4"
+                                className="btn-primary bg-primary btn fw-semibold position-absolute bottom-0 end-0 buttonCreateQuiz border-0 p-3 px-4"
                                 type="button"
                                 onClick={handleEdit}
                             >
