@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './formulaireCreateQuestionsAndAnswers.css';
+import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../Services/AxiosInstance';
 
 function FormulaireCreateQuestionsAndAnswers({ numQuestions, quizId }) {
@@ -9,6 +10,8 @@ function FormulaireCreateQuestionsAndAnswers({ numQuestions, quizId }) {
             propositions: Array.from({ length: 3 }, () => ({ text: '', isTrue: false, relatedTo: '' }))
         }))
     );
+
+    const navigate = useNavigate();
 
     // Utilisez useEffect pour mettre à jour les questions lorsque numQuestions change
     useEffect(() => {
@@ -161,6 +164,8 @@ function FormulaireCreateQuestionsAndAnswers({ numQuestions, quizId }) {
                     'Authorization': `Bearer ${token}`
                 }
             });
+            alert('Le quiz a été créé avec succès !');
+            navigate('/mes-quiz');
 
             console.log('Questions and answers added successfully:', response.data);
         } catch (error) {
