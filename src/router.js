@@ -12,6 +12,7 @@ import MyQuiz from "./Pages/MyQuiz/MyQuiz";
 import Profil from "./Pages/Profil/Profil";
 import Deconnexion from "./Pages/Deconnexion/Deconnexion";
 import NewQuiz from "./Pages/NewQuiz/NewQuiz";
+import PlayQuiz from "./Pages/Play/PlayQuiz";
 
 export default function Routing() {
     return (
@@ -28,7 +29,8 @@ export default function Routing() {
             <Route path="/nouveau-quiz" element={<NewQuiz />}/> */
             <Route path="/administration" element={<Admin />}/>
             <Route path="/mentions-legales" element={<LegalNotice />}/>
-            <Route path="politique-de-confidentialite" element={<PrivacyPolicy />}/>
+            <Route path="/politique-de-confidentialite" element={<PrivacyPolicy />}/>
+            <Route path="/quiz/joue/:id" element={<PlayQuiz />}/> 
         </Routes>
     )
 }

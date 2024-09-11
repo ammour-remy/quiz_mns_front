@@ -60,7 +60,7 @@
 //                     password: password,
 //                     is_admin: false // ou true selon les besoins
 //                 });
-                
+
 //                 alert('Utilisateur créé avec succès');
 //                 navigate('/');
 //             } catch (error) {
@@ -171,7 +171,7 @@ function Formulaires(props) {
                 setError('');
                 navigate('/home');
             } catch (error) {
-                setError('Invalid email or password');
+                setError('Le mail ou mot de passe n\'est pas valide');
             }
         } else if (props.title === "Inscrivez-vous") {
             // Logique pour l'inscription
@@ -186,9 +186,9 @@ function Formulaires(props) {
                     last_name: lastName,
                     email: email,
                     password: password,
-                    is_admin: false // ou true selon les besoins
+                    is_admin: false
                 });
-                
+
                 alert('Utilisateur créé avec succès');
                 navigate('/');
             } catch (error) {
@@ -232,20 +232,20 @@ function Formulaires(props) {
                 {props.title === "Inscrivez-vous" && (
                     <>
                         <label htmlFor="LastName">Nom</label>
-                        <input 
-                            className='mb-4' 
-                            type="text" 
-                            name="LastName" 
-                            value={lastName}  
+                        <input
+                            className='mb-4'
+                            type="text"
+                            name="LastName"
+                            value={lastName}
                             onChange={(e) => setLastName(e.target.value)}
                             required
                         />
                         <label htmlFor="FirstName">Prénom</label>
-                        <input 
-                            className='mb-4' 
-                            type="text" 
-                            name="FirstName" 
-                            value={firstName}  
+                        <input
+                            className='mb-4'
+                            type="text"
+                            name="FirstName"
+                            value={firstName}
                             onChange={(e) => setFirstName(e.target.value)}
                             required
                         />
@@ -271,14 +271,26 @@ function Formulaires(props) {
                 {props.title === "Inscrivez-vous" && (
                     <>
                         <label htmlFor="confirmPassword">Confirmer le mot de passe</label>
-                        <input 
-                            className='mb-4' 
-                            type="password" 
-                            name="confirmPassword" 
-                            value={confirmPassword}  
+                        <input
+                            className='mb-4'
+                            type="password"
+                            name="confirmPassword"
+                            value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                             required
                         />
+                    </>
+                )}
+                {props.title === "Réinitialiser le mot de passe" && (
+                    <>
+                        <label htmlFor="newPassword">Nouveau mot de passe</label>
+                        <input className='mb-4' type="text" name="newPassword" />
+                    </>
+                )}
+                {(props.title === "Inscrivez-vous" || props.title === "Réinitialiser le mot de passe") && (
+                    <>
+                        <label htmlFor="confirmPassword">Confirmer le mot de passe</label>
+                        <input className='mb-4' type="text" name="confirmPassword" />
                     </>
                 )}
 
@@ -296,7 +308,7 @@ function Formulaires(props) {
 
                 {/* Affichage du message d'erreur */}
                 {error && <p style={{ color: 'red' }}>{error}</p>}
-                
+
                 <section className='pb-4'></section>
                 <button className='bgPrimary fw-semibold position-absolute bottom-0 end-0 border-0 p-3 px-4 rounded-3' type="submit">Envoyer</button>
             </form>
